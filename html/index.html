@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document asdf sdafsaf</title>
+    <style>
+        table,
+        td {
+            border: 1px solid black;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- paragraph, heading (block), format -->
+    <div>
+        <p>This is a <span style="color: red">paragraph</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a</p>
+        <br><br><br>
+        <hr>
+
+        <h1 id="h1">H1</h1>
+        <h2>H2</h2>
+        <h3>....</h3>
+        <h6>h6</h6>
+    </div>
+    <!-- format(inline) -->
+    <b>This is b tag</b> <!-- bold -->
+    <strong>This is strong tag</strong>
+    <br>
+    <i>italic</i>
+    <em>emphasize</em>
+    <small> Thẻ small make this text small </small>
+    <mark> Thẻ small make this text is marked </mark>
+    <del> Thẻ small make this text is deleted </del>
+    <ins> Thẻ ins (inserted) make this text is inserted </ins>
+    <sub> Thẻ sub (subscript) make this text like subscript </sub>
+    <p> formula of water: H<sub>2</sub>O</p>
+    <!-- <sup> Thẻ sup (superscript) make this text like superscript </sup> -->
+    <p> a<sup>2</sup> - b<sup>2</sup> = (a-b)(a+b) </p>
+
+    <!-- display: block, inline -->
+    <div>Text</div>
+    <span>Span</span> <span>Span</span> <span>Span</span>
+
+    <!-- images (src: source) alt(alternative) -->
+    <!-- relative path -->
+    <!-- <a href="https://google.com"> -->
+    <img src="./bg.jpg" width="500px" alt="Background image">
+    <!-- <button>Go go google</button> -->
+    <!-- </a> -->
+
+
+    <!-- absolute path -->
+    <!-- internal path -->
+    <img src="/html/bg.jpg" width="500px" alt="Background image">
+
+    <!-- external path -->
+    <img src="https://wallpapercave.com/wp/wp6369875.jpg" width="500px" alt="Background image">
+
+    <div style="background-image: url('./bg.jpg');">
+        This is div tag
+    </div>
+
+    <!-- links -->
+    <!-- external link -->
+    <!-- open in current tab -->
+    <a href="https://google.com" target="_self">Go to google</a>
+    <!-- open in new tab -->
+    <a href="https://google.com" target="_blank">Read more information</a>
+
+    <br>
+    <!-- internal -->
+    <a href="/html/pages/about_page.html">About</a>
+    <a href="/html/pages/contact.html">Contact</a>
+    <!-- bookmarks -->
+    <a id="goh1" href="#h1">Go to h1</a>
+
+    <!-- show list data -->
+    <!-- list -->
+    <ol type="a">
+        <li>Hoc tap tot, lao dong tot</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>Khiem ton, that tha, dung cam</li>
+    </ol>
+    <ul style="list-style-type: circle; color: red">
+        <li><a href="/html/index.html">Home</a></li>
+        <li><a href="/html/pages/about_page.html">About Page</a></li>
+        <li><a href="/html/pages/contact.html">Contact us</a></li>
+    </ul>
+
+    <!-- table -->
+    <table>
+        <legend>List students</legend>
+        <thead>
+            <tr>
+                <td rowspan="2">Id</td>
+                <td colspan="2">Information</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>Class</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Khanh</td>
+                <td rowspan="2">ReactJS</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Van</td>
+            </tr>
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+
+    <pre>Lorem,
+        ipsum dolor sit 
+        amet consectetur adipisicing elit.
+         A labore nulla illum repellat
+          libero quae quam nostrum tenetur 
+          iste porro dolorum, ab odit eos,
+           eaque temporibus similique laborum cum. Sed!</pre>
+
+    <!-- Layouts -->
+    <header>
+        Header
+    </header>
+    <!-- <div class="my-head"></div> -->
+    <!-- navigation -->
+    <section>
+        Section
+        <nav>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </nav>
+        <article>
+            <h3>Title</h3>
+            <p>Description</p>
+        </article>
+    </section>
+    <footer>
+        Footer
+    </footer>
+
+    <!-- form -->
+    <form action="" method="GET">
+        <label for="">Username: </label>
+        <input name="name" type="text" value="readonly data" placeholder="Enter name" required readonly disabled>
+        <br>
+        <label for="">Password</label>
+        <input name="password" type="password" placeholder="Enter password">
+        <br>
+        <label for="">Age</label>
+        <input name="age" type="number" placeholder="Enter age" min="1" max="200">
+
+        <select name="month" id="">
+            <optgroup label="Spring">
+                <option value="1">Tháng 1 | January</option>
+                <option value="2">Tháng 2</option>
+                <option value="3">Tháng 3</option>
+            </optgroup>
+            <optgroup label="Summer">
+                <option value="4">Tháng 4</option>
+                <option value="5">Tháng 5</option>
+                <option value="6">Tháng 6</option>
+            </optgroup>
+        </select>
+
+        <label for="">Gender</label>
+        <label for="">Male</label>
+        <input name="gender" value="male" type="radio">
+        <label for="">FeMale</label>
+        <input name="gender" value="female" type="radio">
+
+        <input id="policy" type="checkbox">
+        <label for="policy">I agree with Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt harum velit est. Sequi quae, aspernatur aperiam optio reprehenderit modi, blanditiis molestias nam illo quas laudantium fuga incidunt hic dolorum vero.</label>
+
+        <input type="Submit" value="Submit">
+    </form>
+
+    <!-- iframe -->
+    <iframe src="/html/pages/contact.html" height="200" width="300"></iframe>
+    <iframe src="https://reactjs.org/" height="200" width="300"></iframe> 
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/5upr8tBAfNM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <!-- media -->
+    <video src=""></video>
+    <audio src=""></audio>
+
+    <!-- graphic -->
+    <sgv></sgv>
+    <canvas></canvas>
+
+</body>
+
+</html>
