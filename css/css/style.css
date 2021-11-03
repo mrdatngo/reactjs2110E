@@ -1,0 +1,161 @@
+@import "base.css";
+
+/* h3 {
+    color: yellow;
+    font-size: 30px;
+} */
+
+
+/* article h3 {
+    color: red;
+} */
+
+
+/* article .title {
+    color: red;
+}
+
+p {
+    color: red;
+}
+ */
+
+
+/* => */
+
+
+/* article .title,
+p {
+    color: red;
+} */
+
+
+/* article>.title {
+    color: blue
+} */
+
+
+/* 
+#title {
+    color: red;
+} */
+
+
+/* 
+.title {
+    color: blue
+}
+
+.bg-dark {
+    background-color: black;
+    color: white
+} */
+
+
+/* .title+p {
+    border: 1px solid black;
+} */
+
+
+/* .title~p {
+    border: 1px solid black;
+} */
+
+
+/* [title*="Test"] {
+    color: pink
+} */
+
+
+/* [title^="Test"] {
+    color: pink
+} */
+
+h3.title2#id[title*="test"] {
+    font-size: 40px;
+}
+
+h3.title#id[title*="test"] {
+    background-color: grey;
+    font-size: 100px
+}
+
+
+/* pseudo selector */
+
+.gotogoogle:visited {
+    color: #FF0
+}
+
+.gotogoogle:active {
+    color: yellow
+}
+
+.gotogoogle:link {
+    color: black;
+}
+
+.title:hover {
+    cursor: pointer;
+}
+
+input:focus {
+    width: 500px;
+}
+
+table,
+tr {
+    width: 100%;
+    border: 1px solid black;
+}
+
+td {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+tr td:first-of-type {
+    text-align: center;
+    color: red;
+}
+
+
+/* tr td:last-child {
+    text-align: center;
+} */
+
+
+/* 
+tr td:nth-child(2) {
+    text-align: center;
+} */
+
+
+/* tr td:nth-last-child(2) {
+    text-align: center;
+} */
+
+p::first-line {
+    color: red
+}
+
+p::first-letter {
+    font-size: 30px;
+}
+
+p::selection {
+    background-color: red;
+}
+
+p::before {
+    display: inline;
+    content: "Before ";
+}
+
+p::after {
+    display: inline;
+    content: " After";
+}
