@@ -47,3 +47,74 @@ body {
 .nav .menu .menu-item .sub-menu .sub-menu-item:hover a {
     color: #ff881a
 }
+
+.menu-icon-wrapper {
+    background-color: #333;
+    color: white;
+    display: none;
+}
+
+@media only screen and (max-width: 700px) {
+    .nav .menu {
+        display: none;
+    }
+    .menu-icon-wrapper {
+        display: block;
+    }
+}
+
+.block {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    background-color: yellow;
+    transform: scale(0.5, 0.5) rotate(45deg) skew(30deg, 30deg);
+    position: relative;
+}
+
+.search-input {
+    width: 100px;
+}
+
+.search-input:focus {
+    width: 300px;
+    transition: width 1s ease-in-out 2s;
+}
+
+.block {
+    animation: run-around 2s ease 0s infinite normal backwards;
+}
+
+@keyframes run-around {
+    /* from {
+        left: 0px;
+    }
+    to {
+        left: 300px;
+    } */
+    0% {
+        left: 0px;
+        top: 0px;
+        background-color: yellow;
+    }
+    25% {
+        left: 300px;
+        top: 0px;
+        background-color: blue;
+    }
+    50% {
+        left: 300px;
+        top: 300px;
+        background-color: red;
+    }
+    75% {
+        left: 0px;
+        top: 300px;
+        background-color: black
+    }
+    100% {
+        left: 0px;
+        top: 0px;
+        background-color: yellow;
+    }
+}
