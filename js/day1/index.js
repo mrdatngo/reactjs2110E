@@ -25,7 +25,7 @@ let firstNumber = 5
 // ++firstNumber
 
 let secondNumber = 11
-let total = firstNumber++ + secondNumber
+let total = ++firstNumber + ++secondNumber + secondNumber++
 
 console.log("total", total, isMale, huyStudent, huyName, test)
 
