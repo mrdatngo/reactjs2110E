@@ -29,4 +29,14 @@ let total = ++firstNumber + ++secondNumber + secondNumber++
 
 console.log("total", total, isMale, huyStudent, huyName, test)
 
+let totalOddNumber // (lower) camel case
+// let total_odd_number less popular in js
+
+const PI = 3.14
+// const CONST_NUMBER = 1234
+
+let b = 3 // this is first number
+let c = 4 // this is second number
+let a = b + c // this is total of all odd number
 // Number
+
