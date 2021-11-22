@@ -130,6 +130,21 @@ console.log(Math.round(n1))
 console.log(Math.random())
 
 // roll a dive [1, 6]
-function getRandom() {
-    return // N[1, 6]
+function getDiveRandom() {
+    return Math.floor(Math.random() * 6) + 1
 }
+
+function getRandom(start, end) {
+    let random = end - start
+    return start + Math.floor(Math.random() * (random  + 1))
+}
+
+let randomNumber = getDiveRandom()
+console.log(randomNumber)
+randomNumber = getRandom(10, 11)
+console.log(randomNumber)
+
+// 3.4567283$
+x = 3.4567283123412341234
+// x = 3.45
+console.log("Round 2 fraction digits: ", x.toFixed(2), Math.round(x * 100)/100)
