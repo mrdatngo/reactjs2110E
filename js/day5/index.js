@@ -85,7 +85,7 @@ console.log(students.slice(0));
 
 // splice - add, remove elements in middle of array
 console.log(students)
-console.log(students.splice(1, 2, { name: "Van"}, { name: "Phi"}))
+// console.log(students.splice(1, 2, { name: "Van"}, { name: "Phi"}))
 console.log(students)
 
 // console.log(student)
@@ -141,7 +141,7 @@ console.log(student, copyStudent1, copyStudent2, copyStudent3, copyStudent4)
 console.log("------------------------------------")
 // console.log(students, students.indexOf({name: 'Van'})) // can not
 
-let foundCb = function(student, index, students) {
+let foundCb = function (student, index, students) {
     console.log(student, index, students)
     return student.name === "Van"
 }
@@ -169,3 +169,80 @@ console.log(foundStudent);
 // }
 
 // callHelloForMe(hello)
+
+console.log("-------------------------------------")
+console.log(students)
+// find all students have age = 20
+let studentsAge20 = students.filter((student, index, students) => {
+    console.log(student, index, students)
+    return student.age === 20
+})
+
+students = [{
+    firstName: "Nguyen",
+    lastName: "Anh Tai",
+    age: 20
+},
+{
+    firstName: "Bui",
+    lastName: "Huu Huy",
+    age: 21
+},
+{
+    firstName: "Le",
+    lastName: "Huong",
+    age: 20
+}]
+
+console.log("studentsAge20", studentsAge20)
+// find all students have last character of firstName is 'n'
+let studentsHaveLastNCharacters = students.filter((student) => {
+    // code here
+    if (!student.firstName) {
+        return false
+    }
+    // return student.firstName[student.firstName.length - 1] === "n"
+    return student.firstName.slice(-1)
+})
+
+console.log("studentsHaveLastNCharacters: ", studentsHaveLastNCharacters)
+
+
+let studentWithFullNames = students.map(student => {
+    return {
+        ...student,
+        fullName: student.firstName + " " + student.lastName
+    }
+})
+
+studentWithFullNames[0].firstName = "Nguyen 2"
+console.log("studentWithFullNames: ", studentWithFullNames)
+
+// sort - (quick sort)
+// age descending
+console.log(students.sort((s1, s2) => {
+    return s2.age - s1.age
+}))
+
+// lastName alphabet - ascending
+console.log(students.sort((s1, s2) => {
+    if (s1.lastName > s2.lastName) {
+        return 1
+    } else if (s1.lastName < s2.lastName) {
+        return -1
+    } else {
+        return 0
+    }
+}))
+
+numbers = [5, 2, 2, 4, 7]
+// console.log("numbers: ", numbers)
+// console.log(numbers.sort().reverse())
+
+// reduce - hard - less useful
+console.log("Total: ", numbers.reduce((acc, value) => {
+    console.log(value, acc)    
+    return value + acc
+}))
+
+console.log("concat: ", [2, 3, 4].concat(["string", 3]))
