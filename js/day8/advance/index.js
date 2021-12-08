@@ -1,3 +1,15 @@
+// import multiply, { sum }  from "./utils.js"
+// // import sum from './utils.js'
+
+// //// import - export
+// console.log("Sum(6,3): ", sum(6, 3))
+// console.log(multiply)
+
+import utils from "./utils.js"
+console.log(utils.sum(3, 4))
+console.log(utils.multiply(4, 5))
+console.log(utils.sub(4, 5))
+console.log(utils.devide(4, 5))
 //// var let const
 // const -- khai bao hang so
 
@@ -46,7 +58,7 @@ let genID = genIDF()
 console.log(genID())
 console.log(genID())
 console.log(genID())
-ID = 0
+// ID = 0
 console.log(genID())
 
 //// bind, apply, call
@@ -72,4 +84,3 @@ say.apply(EN, ["Nam"])
 say.call(VN, "Nam", 'parm2')
 say.call(EN, "Nam")
 
-//// import - export
