@@ -17,21 +17,13 @@ export class MyClassComponent extends Component {
         }
     }
 
-    onUsernameChange = (event) => {
-        let { value } = event.target
-        this.setState({ username: value })
-    }
-
-    onEmailChange = (event) => {
-        this.setState({ email: event.target.value })
-    }
-
-    onPasswordChange = (event) => {
-        this.setState({ password: event.target.value })
-    }
-
     onPolicyChange = (event) => {
         this.setState({ policy: event.target.checked })
+    }
+
+    onInputChange = (event) => {
+        let { value, name } = event.target
+        this.setState({ [name]: value })
     }
 
     onSubmit = (event) => {
@@ -46,16 +38,16 @@ export class MyClassComponent extends Component {
             <form action="/register" method="" style={{background: this.props.bgColor}}>
                 <h3>Register</h3>
                 <label htmlFor="username">User Name</label>
-                <input type="text" name="username" id="username" onChange={this.onUsernameChange}/>
+                <input type="text" name="username" id="username" onChange={this.onInputChange}/>
                 <br />
                 <label htmlFor="email">Email</label>
-                <input type="text" name="email" id="email" onChange={this.onEmailChange}/>
+                <input type="text" name="email" id="email" onChange={this.onInputChange}/>
                 <br />
                 <label htmlFor="password">Password</label>
-                <input type="password" name="password" id="password" onChange={this.onPasswordChange}/>
+                <input type="password" name="password" id="password" onChange={this.onInputChange}/>
                 <br />
                 <label htmlFor="accept_policy">Policy</label>
-                <input type="checkbox" name="accept_policy" id="accept_policy" onChange={this.onPolicyChange}/>
+                <input type="checkbox" name="accept_policy" id="accept_policy" onChange={this.onInputChange}/>
                 <br />
                 <button onClick={this.onSubmit}>Register</button>
                 <input onClick={this.onSubmit} type="button" value="Register" id="" />
