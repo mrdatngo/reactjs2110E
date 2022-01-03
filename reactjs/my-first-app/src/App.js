@@ -9,10 +9,22 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import { LoginPage } from './views/pages/login/Login';
+import { HomePage } from './views/pages/home/Home';
+import { Page404 } from './views/pages/page404/Page404';
+import { DefaultLayout } from './views/layouts/DefaultLayout';
 
 function App() {
   return (
     <Router>
+
+      <Routes>
+        <Route path="/login" element={<LoginPage />}></Route>
+        <Route path="/page404" element={<Page404 />} />
+        <Route path="*" element={<DefaultLayout />}></Route>
+      </Routes>
+
+      {/* for study */}
       <nav>
         <Link to="/register-func">Function Component</Link>
         <br />
@@ -21,7 +33,6 @@ function App() {
         <a href="/register-func">Function Component</a>
       </nav>
       <Routes>
-        {/* <Route path="/register" element={"Test"}> */}
         <Route path="/register-func" element={
           <div>
             <p>Func Component:</p>
@@ -37,7 +48,6 @@ function App() {
           }
         >
         </Route>
-        {/* </Route> */}
       </Routes>
     </Router>
   );
