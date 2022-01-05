@@ -14,6 +14,8 @@ import { HomePage } from './views/pages/home/Home';
 import { Page404 } from './views/pages/page404/Page404';
 import { DefaultLayout } from './views/layouts/DefaultLayout';
 
+import routers from './routers'
+
 function App() {
   return (
     <Router>
@@ -21,11 +23,11 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginPage />}></Route>
         <Route path="/page404" element={<Page404 />} />
-        <Route path="*" element={<DefaultLayout />}></Route>
+        <Route path="*" element={<DefaultLayout routers={routers}/>}></Route>
       </Routes>
 
       {/* for study */}
-      <nav>
+      {/* <nav>
         <Link to="/register-func">Function Component</Link>
         <br />
         <Link to="/register-class">Class Component</Link>
@@ -48,7 +50,7 @@ function App() {
           }
         >
         </Route>
-      </Routes>
+      </Routes> */}
     </Router>
   );
 }
