@@ -2,6 +2,7 @@ import React from 'react'
 import { Form, Input, Button, Checkbox, Card } from 'antd';
 
 import "./login.css"
+import { UserApi } from '../../../apis';
 
 /**
 * @author
@@ -11,6 +12,7 @@ import "./login.css"
 export const LoginPage = (props) => {
     const onFinish = (values) => {
         console.log('Success:', values);
+        UserApi.signIn()
     };
 
     const onFinishFailed = (errorInfo) => {

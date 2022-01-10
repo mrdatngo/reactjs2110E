@@ -102,8 +102,6 @@ export const DefaultLayout = ({ routers }) => {
                                         (<Route path={menu.path} element={menu.component}></Route>)
                                 })
                             }
-                            <Route path="/add-student" element={<AddStudent />}></Route>
-                            <Route path="/list-student" element={<ListStudent />} />
                         </Routes>
                     </div>
                 </Content>
