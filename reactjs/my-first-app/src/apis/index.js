@@ -4,12 +4,21 @@ import axios from "axios"
 const BASE_API = "http://localhost:8000"
 
 const UserApi = {
-    signIn: () => {
-        return axios.post(`${BASE_API}/signin`, {
-            "email": "admin@gmail.com",
-            "password": "123456"
+    signIn: (data) => {
+        return axios.post(`${BASE_API}/signin`, data).then(res => {
+            console.log(res)
+            return res.data
         })
     }
 }
 
-export { UserApi }
+
+const StudentsApi = {
+    listStudents: () => {
+        return axios.get(`${BASE_API}/students`).then(res => {
+            return res.data
+        })
+    }
+}
+
+export { UserApi, StudentsApi }

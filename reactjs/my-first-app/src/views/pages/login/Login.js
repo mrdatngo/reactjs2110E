@@ -3,6 +3,7 @@ import { Form, Input, Button, Checkbox, Card } from 'antd';
 
 import "./login.css"
 import { UserApi } from '../../../apis';
+import { saveToken } from '../../../utils/tokenHandler';
 
 /**
 * @author
@@ -12,7 +13,21 @@ import { UserApi } from '../../../apis';
 export const LoginPage = (props) => {
     const onFinish = (values) => {
         console.log('Success:', values);
-        UserApi.signIn()
+        UserApi.signIn(values)
+            .then(data => {
+                console.log(data)
+                saveToken(data.token)
+                // redirect to dashboard(home)
+                // use react-router-dom push
+                window.location = "/"
+            })
+            .catch(err => {
+                let message = "Something went wrong!"
+                if (err.response && err.response.data && err.response.data.message) {
+                    message = err.response.data.message
+                }
+                alert(message)
+            })
     };
 
     const onFinishFailed = (errorInfo) => {
@@ -38,12 +53,16 @@ export const LoginPage = (props) => {
                     autoComplete="off"
                 >
                     <Form.Item
-                        label="Username"
-                        name="username"
+                        label="Email"
+                        name="email"
                         rules={[
                             {
                                 required: true,
-                                message: 'Please input your username!',
+                                message: 'Please input your email!',
+                            },
+                            {
+                                type: "email",
+                                message: 'Please input your email!',
                             },
                         ]}
                     >
@@ -63,7 +82,7 @@ export const LoginPage = (props) => {
                         <Input.Password />
                     </Form.Item>
 
-                    <Form.Item
+                    {/* <Form.Item
                         name="remember"
                         valuePropName="checked"
                         wrapperCol={{
@@ -72,7 +91,7 @@ export const LoginPage = (props) => {
                         }}
                     >
                         <Checkbox>Remember me</Checkbox>
-                    </Form.Item>
+                    </Form.Item> */}
 
                     <Form.Item
                         wrapperCol={{

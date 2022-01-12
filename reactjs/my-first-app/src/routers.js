@@ -2,6 +2,7 @@
 import { TeamOutlined } from "@ant-design/icons"
 import { AddStudent } from "./views/components/students/AddStudent/AddStudent";
 import { ListStudent } from "./views/components/students/ListStudent/ListStudent";
+import { ListStudentClassComp } from "./views/components/students/ListStudent/ListStudentClassComp";
 
 const routers = [
     {
@@ -18,6 +19,11 @@ const routers = [
                 path: "/list-student",
                 title: "List Student",
                 component: <ListStudent />
+            },
+            {
+                path: "/list-student-class-component",
+                title: "List Student Class Component",
+                component: <ListStudentClassComp />
             }
         ]
     },

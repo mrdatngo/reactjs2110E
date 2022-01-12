@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { StudentsApi } from '../../../../apis'
 
 /**
 * @author
@@ -6,7 +7,32 @@ import React from 'react'
 **/
 
 export const ListStudent = (props) => {
+
+    const [students, setStudents] = useState([])
+
+    // componentDidMount
+    useEffect(() => {
+        StudentsApi.listStudents().then(data => {
+            console.log(data)
+            setStudents(data)
+        })
+        // return () => {
+        //     cleanup
+        // }
+    }, [])
+
+    // StudentsApi.listStudents().then(data => {
+    //     console.log(data)
+    //     setStudents(data)
+    // })
+
     return (
-        <div>ListStudent</div>
+        <div>ListStudent:
+            {
+                students.map(student => {
+                    return <p>{student.name}</p>
+                })
+            }
+        </div>
     )
 }
