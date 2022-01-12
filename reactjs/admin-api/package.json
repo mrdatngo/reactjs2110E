@@ -1,0 +1,17 @@
+{
+    "name": "admin-api",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "json-server": "^0.17.0",
+        "jsonwebtoken": "^8.5.1"
+    }
+}
