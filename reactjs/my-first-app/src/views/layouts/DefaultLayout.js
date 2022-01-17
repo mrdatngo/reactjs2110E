@@ -1,17 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, Route, Routes } from 'react-router-dom'
 import { Layout, Menu, Breadcrumb } from 'antd';
-import {
-    DesktopOutlined,
-    PieChartOutlined,
-    FileOutlined,
-    TeamOutlined,
-    UserOutlined,
-} from '@ant-design/icons';
 
-
-import { AddStudent } from '../components/students/AddStudent/AddStudent'
-import { ListStudent } from '../components/students/ListStudent/ListStudent'
+import { store } from '../../redux/store';
 
 /**
 * @author
@@ -24,11 +15,24 @@ const { SubMenu } = Menu;
 export const DefaultLayout = ({ routers }) => {
 
     const [collapsed, setCollapsed] = useState(false)
+    const [counter, setCounter] = useState(0)
 
     const onCollapse = collapsed => {
         console.log(collapsed);
         setCollapsed(collapsed)
     };
+
+    // componentDidMount
+    useEffect(() => {
+        // setInterval(() => {
+        //     setCounter(store.counter)
+        // }, 100)
+        let updateState = () => {
+            let state = store.getState()
+            setCounter(state.counter)
+        }
+        store.subscribe(updateState)
+    }, [])
 
     // const getMenusRender = () => {
     //     console.log(routers)
@@ -54,12 +58,12 @@ export const DefaultLayout = ({ routers }) => {
                             return (
                                 menu.children ?
                                     (
-                                        <SubMenu key={menu.path} icon={menu.icon} title={menu.title}>
+                                        <SubMenu key={menu.path} icon={menu.icon} title={menu.title + counter}>
                                             {
                                                 menu.children.map(subMenu => {
                                                     return (
                                                         <Menu.Item key={subMenu.path}>
-                                                            <Link to={subMenu.path}>{subMenu.title}</Link>
+                                                            <Link to={subMenu.path}>{subMenu.title}(12)</Link>
                                                         </Menu.Item>
                                                     )
                                                 })
@@ -69,7 +73,7 @@ export const DefaultLayout = ({ routers }) => {
                                     :
                                     (
                                         <Menu.Item key={menu.path} icon={menu.icon}>
-                                            <Link to={menu.path}>{menu.title}</Link>
+                                            <Link to={menu.path}>{menu.title}({counter})</Link>
                                         </Menu.Item>
                                     )
 

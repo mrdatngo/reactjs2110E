@@ -1,5 +1,6 @@
 
 import { TeamOutlined } from "@ant-design/icons"
+import { Counter } from "./views/components/counter/Counter";
 import { AddStudent } from "./views/components/students/AddStudent/AddStudent";
 import { ListStudent } from "./views/components/students/ListStudent/ListStudent";
 import { ListStudentClassComp } from "./views/components/students/ListStudent/ListStudentClassComp";
@@ -38,6 +39,12 @@ const routers = [
         title: "Class Management",
         icon: "",
         component: <h3>Class management</h3>
+    },
+    {
+        path: "/counter",
+        title: "Counter",
+        icon: "",
+        component: <Counter />
     },
 ]
 
