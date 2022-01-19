@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { StudentsApi } from '../../../../apis'
+import { getStudents } from '../../../../redux/actions/studentActions'
+import { store } from '../../../../redux/store'
 
 /**
 * @author
@@ -9,8 +11,22 @@ import { StudentsApi } from '../../../../apis'
 export const ListStudent = (props) => {
 
     const [students, setStudents] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
+
     const [count, setCount] = useState(0)
 
+    // componentDidMount
+    useEffect(() => {
+        getStudents()
+        store.subscribe(() => {
+            console.log(store.getState())
+            let { list, isLoading } = store.getState().studentData.students
+            setStudents(list)
+            setIsLoading(isLoading)
+        })
+    }, [])
+
+    /*
     // call when anytime state(props) change => combine componenDidmount + componentDidUpdate
     // can replace for componentDidUpdate
     useEffect(() => {
@@ -63,10 +79,11 @@ export const ListStudent = (props) => {
     //     setStudents(data)
     // })
 
+    */
     return (
-        <div>ListStudent:
+        <div>ListStudent:            
             {
-                students.map(student => {
+                isLoading ? "Loading...." : students.map(student => {
                     return <p>{student.name}</p>
                 })
             }

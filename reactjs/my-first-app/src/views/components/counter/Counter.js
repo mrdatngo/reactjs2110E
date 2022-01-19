@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import { increaseCounter, increaseCounterDelay, store } from '../../../redux/store'
+import React, { useEffect, useState } from 'react'
+import { increaseCounter, increaseCounterDelay } from '../../../redux/actions/counterActions'
+import { store } from '../../../redux/store'
 
 /**
 * @author
@@ -8,18 +9,21 @@ import { increaseCounter, increaseCounterDelay, store } from '../../../redux/sto
 
 
 export const Counter = (props) => {
-
-    const [counter, setCounter] = useState(0)
+    const [counter, setCounter] = useState(store.getState().counter)
+    // componentDidMount
+    useEffect(() => {
+        let updateState = () => {
+            let state = store.getState()
+            setCounter(state.counterData.counter)
+        }
+        store.subscribe(updateState)
+    }, [])
 
     const increase = () => {
-        // let resultCounter = counter + 1
-        // setCounter(resultCounter)
-        // increaseCounter()
+        increaseCounter()
     }
 
     const increaseDelay = () => {
-        let resultCounter = counter + 1
-        setCounter(resultCounter)
         increaseCounterDelay()
     }
 

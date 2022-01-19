@@ -28,7 +28,7 @@ export const DefaultLayout = ({ routers }) => {
         //     setCounter(store.counter)
         // }, 100)
         let updateState = () => {
-            let state = store.getState()
+            let state = store.getState().counterData
             setCounter(state.counter)
         }
         store.subscribe(updateState)
@@ -96,7 +96,7 @@ export const DefaultLayout = ({ routers }) => {
                                     return menu.children ?
                                         (
                                             menu.children.map(subMenu => {
-                                                console.log(subMenu)
+                                                // console.log(subMenu)
                                                 return (
                                                     <Route path={subMenu.path} element={subMenu.component}></Route>
                                                 )

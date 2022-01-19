@@ -1,42 +1,19 @@
-const store = {
-    state: {
-        counter: 0,
-    },
+import { createStore, combineReducers, applyMiddleware  } from 'redux'
+import createSagaMiddleware from 'redux-saga'
 
-    cbs: [],
+import { composeWithDevTools } from "redux-devtools-extension"
 
-    subscribe: function(cb) {
-        this.cbs.push(cb)
-    },
+import { counterReducer } from '../reducers/counterReducers'
+import { studentReducer } from '../reducers/studentReducer'
+import studentSaga from '../sagas/studentSaga'
 
-    public: function() {
-        this.cbs.forEach(cb => {
-            cb()
-        });
-    },
+const reducersAll = combineReducers({ counterData: counterReducer, studentData: studentReducer })
 
-    getState: function() {
-        return this.state
-    },
+const sagaMiddleware = createSagaMiddleware()
 
-    setState: function(state) {
-        this.state = state
-    }
-}
+let store = createStore(reducersAll, composeWithDevTools(applyMiddleware(sagaMiddleware)))
 
-// action
-function increaseCounter() {
-    let { counter } = store.getState()
-    store.setState({ counter: counter + 1 })
-    store.public()
-}
+sagaMiddleware.run(studentSaga)
+// sagaMiddleware.run(userSaga)
 
-function increaseCounterDelay() {
-    setTimeout(() => {
-        let { counter } = store.getState()
-        store.setState({ counter: counter + 1 })
-    }, 1000)
-    store.public()
-}
-
-export { store, increaseCounter, increaseCounterDelay }
+export { store }
