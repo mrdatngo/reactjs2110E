@@ -1,14 +1,41 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
+
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import 'antd/dist/antd.css';
+import { store } from './redux/store';
+import { getToken, parseJwt } from './utils/tokenHandler';
+import { LOGIN_SUCCESS } from './redux/const/actionTypes';
+
+let token = getToken()
+if (token) {
+  // verify token
+  let { email, exp, iat } = parseJwt(token)
+  exp *= 1000
+  let curTimeStamp = new Date().getTime()
+
+  if (exp > curTimeStamp) {
+    // token valid
+    store.dispatch({
+      type: LOGIN_SUCCESS,
+      payload: {
+        email,
+        token
+      }
+    })
+  }
+}
 
 ReactDOM.render(
   // <React.StrictMode>
-    <App />,
+  <Provider store={store}>
+    <App />
+  </Provider>
+  ,
   // </React.StrictMode>,
   document.getElementById('root')
 );

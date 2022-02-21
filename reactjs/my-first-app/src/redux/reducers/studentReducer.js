@@ -8,8 +8,7 @@ const initialState = {
 }
 
 function studentReducer(state = initialState, action) {
-    console.log(state, action)
-    switch(action.type) {
+    switch (action.type) {
         case GET_LIST_STUDENTS:
             return {
                 ...state,

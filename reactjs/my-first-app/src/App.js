@@ -15,6 +15,7 @@ import { Page404 } from './views/pages/page404/Page404';
 import { DefaultLayout } from './views/layouts/DefaultLayout';
 
 import routers from './routers'
+import PrivateRoute from './routers/PrivateRoute';
 
 function App() {
   return (
@@ -23,7 +24,9 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginPage />}></Route>
         <Route path="/page404" element={<Page404 />} />
-        <Route path="*" element={<DefaultLayout routers={routers}/>}></Route>
+        <Route path="*" element={<PrivateRoute />}>
+          <Route path="*" element={<DefaultLayout routers={routers} />}></Route>
+        </Route>
       </Routes>
 
       {/* for study */}

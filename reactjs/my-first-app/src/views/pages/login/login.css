@@ -3,3 +3,9 @@
     margin: 0 auto;
     margin-top: 20px;
 }
+
+.error-message {
+    text-align: center;
+    color: red;
+    padding-bottom: 10px;
+}
