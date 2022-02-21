@@ -51,13 +51,25 @@ server.post('/signin', (req, res) => {
     })
 })
 
-// server.use((req, res, next) => {
-//     if (req.method === 'POST') {
-//         req.body.createdAt = Date.now()
-//     }
-//     // Continue to JSON Server router
-//     next()
-// })
+// middleware check authentication
+server.use((req, res, next) => {
+    let data = req.headers.authorization && req.headers.authorization.split(" ")
+    if (data && data.length === 2) {
+        let token = data[1]
+        try {
+            var decoded = jwt.verify(token, 'secret');
+            if (decoded.email) {
+                next()
+            } else {
+                res.sendStatus(401)
+            }
+        } catch {
+            res.sendStatus(401)
+        }
+    } else {
+        res.sendStatus(401)
+    }
+})
 
 // Use default router
 server.use(router)

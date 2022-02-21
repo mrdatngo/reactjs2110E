@@ -1,7 +1,18 @@
 {
     "students": [{
-        "id": 1,
-        "name": "Nguyen Van A",
-        "classes": ["REACTJS", "NODEJS"]
-    }]
+            "id": 1,
+            "name": "Nguyen Van A",
+            "classes": ["REACTJS", "NODEJS"]
+        },
+        {
+            "id": 2,
+            "name": "Nguyen Van B",
+            "classes": ["REACTJS"]
+        },
+        {
+            "id": 3,
+            "name": "Nguyen Van C",
+            "classes": ["NODEJS"]
+        }
+    ]
 }
