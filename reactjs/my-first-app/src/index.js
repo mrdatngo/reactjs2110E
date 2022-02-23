@@ -6,7 +6,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css'
 import { store } from './redux/store';
 import { getToken, parseJwt } from './utils/tokenHandler';
 import { LOGIN_SUCCESS } from './redux/const/actionTypes';
@@ -14,7 +14,7 @@ import { LOGIN_SUCCESS } from './redux/const/actionTypes';
 let token = getToken()
 if (token) {
   // verify token
-  let { email, exp, iat } = parseJwt(token)
+  let { email, exp } = parseJwt(token)
   exp *= 1000
   let curTimeStamp = new Date().getTime()
 

@@ -33,7 +33,7 @@ class Clock extends React.Component {
         this.state = {
             timer: "x:xx:xx xx"
         }
-        
+
         this.run()
     }
 
@@ -46,13 +46,11 @@ class Clock extends React.Component {
             this.setState({
                 timer: timer
             })
-            // console.log(this.timer)
         }, 1000)
     }
 
     render() {
-        console.log("Rendering....")
-        return <p> { this.state.timer } </p>
+        return <p> {this.state.timer} </p>
     }
 }
 

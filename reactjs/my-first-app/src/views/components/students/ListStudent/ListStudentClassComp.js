@@ -20,7 +20,6 @@ export class ListStudentClassComp extends Component {
 
     timerRun = () => {
         this.timerInterval = setInterval(() => {
-            console.log("Run....")
             this.setState({ timer: new Date().toLocaleTimeString() })
         }, 1000)
     }
@@ -42,18 +41,16 @@ export class ListStudentClassComp extends Component {
 
     componentDidUpdate() {
         // never call setState
-        console.log("componentDidUpdate")
-        console.log(this.state)
     }
 
     render() {
         let { students, loading } = this.state
         return (
             <div>
-                { this.state.timer }
+                {this.state.timer}
                 <hr />
                 ListStudent:
-                { loading && "Loading...."}
+                {loading && "Loading...."}
                 {
                     students.map(student => {
                         return <p>{student.name}</p>

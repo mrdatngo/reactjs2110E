@@ -41,9 +41,6 @@ export const MyFuncComponent = (props) => {
 
     const onSubmit = (event) => {
         event.preventDefault()
-        console.log("Submit")
-        // call api
-        console.log("call api with data: ", { ...data, policy })
     }
 
     return (

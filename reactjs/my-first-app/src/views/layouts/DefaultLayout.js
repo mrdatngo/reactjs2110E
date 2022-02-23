@@ -15,7 +15,7 @@ const { SubMenu } = Menu;
 export const DefaultLayout = ({ routers }) => {
 
     const [collapsed, setCollapsed] = useState(false)
-    const [counter, setCounter] = useState(0)
+    // const [counter, setCounter] = useState(0)
 
     const onCollapse = collapsed => {
         console.log(collapsed);
@@ -23,16 +23,16 @@ export const DefaultLayout = ({ routers }) => {
     };
 
     // componentDidMount
-    useEffect(() => {
-        // setInterval(() => {
-        //     setCounter(store.counter)
-        // }, 100)
-        let updateState = () => {
-            let state = store.getState().counterData
-            setCounter(state.counter)
-        }
-        store.subscribe(updateState)
-    }, [])
+    // useEffect(() => {
+    //     // setInterval(() => {
+    //     //     setCounter(store.counter)
+    //     // }, 100)
+    //     let updateState = () => {
+    //         let state = store.getState().counterData
+    //         setCounter(state.counter)
+    //     }
+    //     store.subscribe(updateState)
+    // }, [])
 
     // const getMenusRender = () => {
     //     console.log(routers)
@@ -58,12 +58,12 @@ export const DefaultLayout = ({ routers }) => {
                             return (
                                 menu.children ?
                                     (
-                                        <SubMenu key={menu.path} icon={menu.icon} title={menu.title + counter}>
+                                        <SubMenu key={menu.path} icon={menu.icon} title={menu.title}>
                                             {
                                                 menu.children.map(subMenu => {
                                                     return (
                                                         <Menu.Item key={subMenu.path}>
-                                                            <Link to={subMenu.path}>{subMenu.title}(12)</Link>
+                                                            <Link to={subMenu.path}>{subMenu.title}</Link>
                                                         </Menu.Item>
                                                     )
                                                 })
@@ -73,7 +73,7 @@ export const DefaultLayout = ({ routers }) => {
                                     :
                                     (
                                         <Menu.Item key={menu.path} icon={menu.icon}>
-                                            <Link to={menu.path}>{menu.title}({counter})</Link>
+                                            <Link to={menu.path}>{menu.title}</Link>
                                         </Menu.Item>
                                     )
 
@@ -98,12 +98,12 @@ export const DefaultLayout = ({ routers }) => {
                                             menu.children.map(subMenu => {
                                                 // console.log(subMenu)
                                                 return (
-                                                    <Route path={subMenu.path} element={subMenu.component}></Route>
+                                                    <Route key={subMenu.path} path={subMenu.path} element={subMenu.component}></Route>
                                                 )
                                             })
                                         )
                                         :
-                                        (<Route path={menu.path} element={menu.component}></Route>)
+                                        (<Route key={menu.path} path={menu.path} element={menu.component}></Route>)
                                 })
                             }
                         </Routes>

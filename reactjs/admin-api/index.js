@@ -29,7 +29,6 @@ server.get('/echo', (req, res) => {
 
 server.post('/signin', (req, res) => {
     let { email, password } = req.body
-    console.log(req.body)
     // let users = [{
     //     email: "admin@gmail.com",
     //     password: "123456"
